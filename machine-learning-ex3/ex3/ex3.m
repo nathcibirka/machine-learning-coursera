@@ -62,6 +62,7 @@ lambda_t = 3;
 [J grad] = lrCostFunction(theta_t, X_t, y_t, lambda_t);
 
 fprintf('\nCost: %f\n', J);
+
 fprintf('Expected cost: 2.534819\n');
 fprintf('Gradients:\n');
 fprintf(' %f \n', grad);
