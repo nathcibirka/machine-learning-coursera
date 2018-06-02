@@ -70,12 +70,12 @@ for i=1:num_labels
     Y(i,:) = (y==i);
 end
 
-z2 = X * transpose(Theta1);
+z2 = Theta1 * X';
 a2 = sigmoid(z2);
-a2 = [ones(size(a2,1),1) a2];
-z3 = a2 * transpose(Theta2);
+a2 = [ones(1,size(a2,2)); a2];
+z3 = Theta2 * a2;
 a3 = sigmoid(z3);
-J = (sum(sum (-(Y) .* log(a3') - (1-Y) .* log(1 - a3'))))/m;
+J = (sum(sum (-(Y) .* log(a3) - (1-Y) .* log(1 - a3))))/m;
 
 reg = lambda/(2*m) * (sum(sum(Theta1(:,2:end).^2)) + sum(sum(Theta2(:,2:end).^2)));
 
