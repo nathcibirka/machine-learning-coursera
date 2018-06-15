@@ -8,6 +8,14 @@ m = length(y); % number of training examples
 J_history = zeros(num_iters, 1);
 
 for iter = 1:num_iters
+    
+    J = computeCost(X, y, theta);
+    fprintf('With theta = [%f ; %f]\nCost computed = %f\n', theta(1),theta(2),J);
+    
+    h = X*theta;
+    error = h - y;
+
+    theta = theta - alpha * (1/m) * (transpose(X)*error);
 
     % ====================== YOUR CODE HERE ======================
     % Instructions: Perform a single gradient step on the parameter vector
